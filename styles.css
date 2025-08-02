@@ -1,3 +1,4 @@
+/* Base Reset */
 * {
     margin: 0;
     padding: 0;
@@ -24,9 +25,9 @@ body {
     transition: height 0.7s, width 0.7s;
     transition-delay: 0s, 0.75s;
     overflow: hidden;
+    z-index: 1000;
 }
 
-/* Navigation Active State */
 .navigation.active {
     width: 300px;
     height: 400px;
@@ -34,7 +35,6 @@ body {
     transition-delay: 0s, 0.75s;
 }
 
-/* User Box */
 .navigation .box {
     position: relative;
     width: calc(100% - 60px);
@@ -45,7 +45,6 @@ body {
     gap: 10px;
 }
 
-/* User Name */
 .navigation .box .name {
     white-space: nowrap;
     overflow: hidden;
@@ -60,7 +59,6 @@ body {
     max-width: 200px;
 }
 
-/* User Image */
 .img {
     position: relative;
     min-width: 60px;
@@ -79,7 +77,6 @@ img {
     object-fit: cover;
 }
 
-/* Toggle Button */
 .toggle {
     position: relative;
     width: 60px;
@@ -120,7 +117,6 @@ img {
     transform: translateY(0px) rotate(-45deg);
 }
 
-/* Menu Styles */
 .menu {
     position: absolute;
     top: 60px;
@@ -142,7 +138,6 @@ img {
     visibility: visible;
 }
 
-/* Menu Item */
 .menu li {
     background-color: #f0f0f0;
     border-radius: 10px;
@@ -157,7 +152,6 @@ img {
     transform: translateX(5px);
 }
 
-/* Menu Link */
 .menu li a {
     display: flex;
     align-items: center;
@@ -169,8 +163,62 @@ img {
     text-decoration: none;
 }
 
-/* Icon Styling */
 .menu li i {
     color: #5a5a5a;
     font-size: 1.1em;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .navigation {
+        top: 10px;
+        left: 10px;
+        width: 100px;
+        height: 65px;
+    }
+
+    .navigation.active {
+        width: 260px;
+        height: 390px;
+    }
+
+    .navigation .box {
+        width: calc(100% - 55px);
+        height: 65px;
+        gap: 8px;
+    }
+
+    .navigation .box .name {
+        font-size: 1em;
+        max-width: 0;
+    }
+
+    .navigation.active .box .name {
+        max-width: 150px;
+    }
+
+    .img {
+        min-width: 55px;
+        height: 55px;
+        border: 8px solid white;
+    }
+
+    .toggle {
+        width: 55px;
+        height: 55px;
+    }
+
+    .toggle::before,
+    .toggle::after {
+        width: 28px;
+    }
+
+    .menu {
+        padding: 15px 10px;
+    }
+
+    .menu li {
+        padding: 8px;
+        font-size: 0.9em;
+    }
 }
